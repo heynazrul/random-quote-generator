@@ -51,7 +51,7 @@ body {
 .button-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 button {
@@ -97,6 +97,14 @@ button:hover {
   box-shadow: rgba(0, 114, 253, 0.5) 0 3px 8px;
 }
 
+.speak-button {
+  background: #fd0363;
+}
+
+.speak-button:hover {
+  box-shadow: rgba(253, 0, 114, 0.5) 0 3px 8px;
+}
+
 /* Loader */
 .loader {
   border: 8px solid #f3f3f3; /* Light grey */
@@ -117,3 +125,18 @@ button:hover {
 }
 
 /* Media Query: Tablet or Smaller */
+@media only screen and (max-width: 600px) {
+  .quote-text {
+    font-size: 2.4rem;
+  }
+  .quote-author {
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 1.5rem;
+    padding: 0 15px;
+    line-height: 30px;
+    height: 30px;
+  }
+}

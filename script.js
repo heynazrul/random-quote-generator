@@ -4,6 +4,7 @@ const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader');
+const speak = document.getElementById('speak');
 
 let apiQuotes = [];
 let errorCounter = 0;
@@ -56,6 +57,17 @@ async function getQuotes() {
   }
 }
 
+// Text to Speech
+function textToSpeech() {
+  const synth = window.speechSynthesis;
+  const utterThis = new SpeechSynthesisUtterance();
+  let quoteToRead = quoteText.textContent;
+  let authorToRead = authorText.textContent;
+  utterThis.text = `${quoteToRead} quote by ${authorToRead}`;
+  utterThis.rate = 1;
+  synth.speak(utterThis);
+}
+
 // Tweet Quote
 function tweetQuote() {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
@@ -65,6 +77,7 @@ function tweetQuote() {
 // Event Listeners
 newQuoteBtn.addEventListener('click', newQuote);
 twitterBtn.addEventListener('click', tweetQuote);
+speak.addEventListener('click', textToSpeech);
 
 // On Load
 getQuotes();
